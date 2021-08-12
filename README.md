@@ -1,8 +1,9 @@
-# seismic-hazard-and-risk
+# Seismic Hazard and Risk Analysis calculations
 Supporting calculations for the textbook Seismic Hazard and Risk Analysis
 
 Baker, J. W., Bradley, B. A., and Stafford, P. J. (2021). Seismic Hazard and Risk Analysis. Cambridge University Press, Cambridge, England. www.cambridge.org/9781108425056
 
+Additional resources available at www.pshabook.com
 
 # Disclaimer
 These are simple demonstration calculations, to further illustrate the results from the book.
