@@ -22,7 +22,7 @@ lambda_occur = [-diff(lambda_M) lambda_M(end)]; % find occurence rates from exce
 % p(exceeding each x threshold value | M)
 for j = 1:length(x)
     for i = 1:length(M_vals)
-        [sa, sigma] = gmpe_eval(T, M_vals(i), rup, gmpeFlag);
+        [sa, sigma] = gmm_eval(T, M_vals(i), rup, gmpeFlag);
         p_given_M(i) = 1 - normcdf(log(x(j)),log(sa),sigma);
     end
     
@@ -34,7 +34,7 @@ end
 
 % calcs for example IM case
 for i = 1:length(M_vals)    
-    [sa, sigma] = gmpe_eval(T, M_vals(i), rup, gmpeFlag);
+    [sa, sigma] = gmm_eval(T, M_vals(i), rup, gmpeFlag);
     p_ex(i) = 1 - normcdf(log(x_example),log(sa),sigma);
 end
 
@@ -46,7 +46,7 @@ disagg.Mbar = sum(M_vals.*disagg.example);
 % disagg conditional on occurence for example IM case
 xInc = x_example*1.02; % do computations at an increment on x
 for i = 1:length(M_vals)    
-    [sa, sigma] = gmpe_eval(T, M_vals(i), rup, gmpeFlag);
+    [sa, sigma] = gmm_eval(T, M_vals(i), rup, gmpeFlag);
     pInc(i) = 1 - normcdf(log(xInc),log(sa),sigma);
 end
 lambdaInc = sum(lambda_occur .* pInc);
@@ -65,7 +65,7 @@ lambda_M_and_eps = lambda_occur' * p_eps; % rate of events with a given magnitud
 
 
 for i = 1:length(M_vals)
-    [sa, sigma] = gmpe_eval(T, M_vals(i), rup, gmpeFlag);    
+    [sa, sigma] = gmm_eval(T, M_vals(i), rup, gmpeFlag);    
     Ind(i,:) = (log(sa) + epsValsFine*sigma > log(x_example)); % indicator that the M/epsilon value causes IM > x_example  
 end
 exceedRatesFine = Ind .* lambda_M_and_eps; % rates of given M/epsilon values exceeding IM

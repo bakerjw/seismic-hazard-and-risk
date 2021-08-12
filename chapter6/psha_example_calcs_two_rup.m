@@ -34,7 +34,7 @@ M_A = 6.5;
 R_A = 10;
 
 % compute rates (and intermediate results) for specific IM levels
-[medianIM, sigmaIM]  = gmpe_bjf97(M_A, R_A, T, Fault_Type, Vs30);
+[medianIM, sigmaIM]  = gmm_bjf97(M_A, R_A, T, Fault_Type, Vs30);
 imLevel(1) = 0.2;
 imLevel(2) = 0.5;
 imProbabilitiesA = 1 - normcdf(log(imLevel),log(medianIM),sigmaIM)
@@ -53,7 +53,7 @@ M_B = 7.5;
 R_B = 10;
 
 % compute rates (and intermediate results) for specific IM levels
-[medianIM, sigmaIM]  = gmpe_bjf97(M_B, R_B, T, Fault_Type, Vs30);
+[medianIM, sigmaIM]  = gmm_bjf97(M_B, R_B, T, Fault_Type, Vs30);
 imProbabilitiesB = 1 - normcdf(log(imLevel),log(medianIM),sigmaIM)
 imRateB = lambda_B * imProbabilitiesB; % get rates for two example cases
 imRateTot = imRateA + imRateB; 
