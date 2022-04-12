@@ -173,7 +173,7 @@ plot([pgaEx pgaEx 0], [0 lossEx lossEx], ':k', 'linewidth', 1)
 plot(pgaEx, lossEx, 'ok', 'linewidth', 1)
 xlabel('Peak Ground Acceleration, PGA [g]')
 ylabel('Mean loss ratio, E[C | PGA]')
-text(0.56, 0.12,sprintf('PGA = 0.5 g, \nLoss Ratio = 0.14'),'FontSize',9)
+text(0.56, 0.12, sprintf('PGA = %.2f g \nLoss Ratio = %.2f', pgaEx, lossEx), 'FontSize', 9)
 
 
 
