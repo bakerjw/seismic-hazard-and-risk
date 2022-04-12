@@ -18,7 +18,7 @@ Sa1pt0_threshold = 0.4; %IM threshold to compute exceedance probabilities for
 Fault_Type=1; 
 Vs=500;
 for i=1:length(R)
-    [sa(i), sigma(i)] = gmpe_bjf97(M, R(i), T, Fault_Type, Vs);
+    [sa(i), sigma(i)] = gmm_bjf97(M, R(i), T, Fault_Type, Vs);
 end
 
 %output the numerical values to the command line 
@@ -35,7 +35,7 @@ fprintf('--------------------------------------------------------- \n');
 %get for the full R value range to make plot
 R_plot=1:1:100;
 for j=1:length(R_plot)
-    [sa_plot(j), sigma_plot(j)] = gmpe_bjf97(M, R_plot(j), T, Fault_Type, Vs);
+    [sa_plot(j), sigma_plot(j)] = gmm_bjf97(M, R_plot(j), T, Fault_Type, Vs);
 end
 
 %get the necessary details for plotting the pdf distribution
